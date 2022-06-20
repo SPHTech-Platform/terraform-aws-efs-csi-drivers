@@ -1,5 +1,3 @@
-# Terraform Modules Template
-
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
@@ -13,8 +11,8 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.19.0 |
-| <a name="provider_helm"></a> [helm](#provider\_helm) | 2.6.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 4.18 |
+| <a name="provider_helm"></a> [helm](#provider\_helm) | >= 2.5 |
 
 ## Modules
 
