@@ -157,7 +157,7 @@ variable "iam_role_policy" {
 }
 
 ##############
-#### IRSC ####
+#### IRSA ####
 ##############
 variable "service_account_name" {
   description = "Name of service account to create. Not generated"
