@@ -30,7 +30,7 @@ variable "chart_repository" {
 variable "chart_version" {
   description = "Version of Chart to install. Set to empty to install the latest version"
   type        = string
-  default     = "2.2.6"
+  default     = "2.4.3"
 }
 
 variable "chart_namespace" {
@@ -64,7 +64,7 @@ variable "image_repository" {
 variable "image_tag" {
   description = "Image tag"
   type        = string
-  default     = "v1.3.8"
+  default     = "v1.5.5"
 }
 
 variable "resources_driver" {
