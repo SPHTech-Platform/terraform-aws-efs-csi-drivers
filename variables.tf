@@ -3,12 +3,6 @@ variable "cluster_name" {
   type        = string
 }
 
-variable "region" {
-  description = "The AWS region for the kubernetes cluster. Set to use KIAM or kube2iam for example."
-  type        = string
-  default     = ""
-}
-
 variable "release_name" {
   description = "Helm release name"
   type        = string
@@ -49,6 +43,12 @@ variable "max_history" {
   description = "Max History for Helm"
   type        = number
   default     = 20
+}
+
+variable "create_namespace" {
+  description = "Create the namespace if it does not exist"
+  type        = bool
+  default     = false
 }
 
 ########################
@@ -122,36 +122,6 @@ variable "oidc_provider_arn" {
 
 variable "iam_role_name" {
   description = "Name of IAM role for efs csi"
-  type        = string
-  default     = ""
-}
-
-variable "iam_role_description" {
-  description = "Description for IAM role for efs csi"
-  type        = string
-  default     = "Used by EFS CSI Drivers for EKS"
-}
-
-variable "iam_role_path" {
-  description = "IAM Role path for efs csi"
-  type        = string
-  default     = ""
-}
-
-variable "iam_role_permission_boundary" {
-  description = "Permission boundary ARN for IAM Role for efs csi"
-  type        = string
-  default     = ""
-}
-
-variable "iam_role_tags" {
-  description = "Tags for IAM Role for efs csi"
-  type        = map(string)
-  default     = {}
-}
-
-variable "iam_role_policy" {
-  description = "Override the IAM policy for the efs csi"
   type        = string
   default     = ""
 }
