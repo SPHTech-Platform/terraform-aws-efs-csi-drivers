@@ -24,7 +24,7 @@ variable "chart_repository" {
 variable "chart_version" {
   description = "Version of Chart to install. Set to empty to install the latest version"
   type        = string
-  default     = "2.4.3"
+  default     = "3.1.9"
 }
 
 variable "chart_namespace" {
@@ -58,17 +58,35 @@ variable "create_namespace" {
 variable "image_repository" {
   description = "Image repository on Dockerhub"
   type        = string
-  default     = "amazon/aws-efs-csi-driver"
+  default     = "public.ecr.aws/efs-csi-driver/amazon/aws-efs-csi-driver"
 }
 
 variable "image_tag" {
   description = "Image tag"
   type        = string
-  default     = "v1.5.5"
+  default     = "v2.1.8"
 }
 
-variable "resources_driver" {
-  description = "Driver Resources"
+variable "liveness_probe_image_tag" {
+  description = "Liveness Probe Image Tag"
+  type        = string
+  default     = "v2.14.0-eks-1-32-6"
+}
+
+variable "node_driver_registrar_image_tag" {
+  description = "Node Driver Registrar Image Tag"
+  type        = string
+  default     = "v2.13.0-eks-1-32-6"
+}
+
+variable "external_provisioner_image_tag" {
+  description = "External Provisioner Image Tag"
+  type        = string
+  default     = "v5.2.0-eks-1-32-6"
+}
+
+variable "controller_resources" {
+  description = "Controller Resources"
   type        = map(any)
   default = {
     requests = {
@@ -82,34 +100,31 @@ variable "resources_driver" {
   }
 }
 
-variable "resources_registrar" {
-  description = "Registrar Resources"
+variable "node_resources" {
+  description = "Node Resources"
   type        = map(any)
   default = {
     requests = {
-      cpu    = "100m"
-      memory = "100Mi"
+      cpu    = "200m"
+      memory = "200Mi"
     }
     limits = {
-      cpu    = "100m"
-      memory = "100Mi"
+      cpu    = "200m"
+      memory = "200Mi"
     }
   }
 }
 
-variable "resources_liveness" {
-  description = "LivenessProbe Resources"
-  type        = map(any)
-  default = {
-    requests = {
-      cpu    = "100m"
-      memory = "100Mi"
-    }
-    limits = {
-      cpu    = "100m"
-      memory = "100Mi"
-    }
-  }
+variable "storage_classess" {
+  description = "Storage Classes"
+  type        = any
+  default     = []
+}
+
+variable "enable_helm_hooks_for_csi_driver" {
+  description = "Enable Helm hooks for CSI driver"
+  type        = bool
+  default     = true
 }
 
 ########################
