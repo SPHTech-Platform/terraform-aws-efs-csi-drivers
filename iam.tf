@@ -10,8 +10,11 @@ module "efs_csi_role" {
   attach_efs_csi_policy = true
   oidc_providers = {
     main = {
-      provider_arn               = var.oidc_provider_arn
-      namespace_service_accounts = ["${var.namespace}:${local.service_account_name}"]
+      provider_arn = var.oidc_provider_arn
+      namespace_service_accounts = [
+        "${var.namespace}:${var.controller_service_account_name}",
+        "${var.namespace}:${var.node_service_account_name}",
+      ]
     }
   }
 }

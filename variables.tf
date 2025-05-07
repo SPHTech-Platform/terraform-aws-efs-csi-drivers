@@ -127,6 +127,18 @@ variable "enable_helm_hooks_for_csi_driver" {
   default     = true
 }
 
+variable "controller_service_account_name" {
+  description = "Controller Service Account Name"
+  type        = string
+  default     = "efs-csi-controller-sa"
+}
+
+variable "node_service_account_name" {
+  description = "Node Service Account Name"
+  type        = string
+  default     = "efs-csi-node-sa"
+}
+
 ########################
 # IAM Role
 ########################
@@ -144,12 +156,6 @@ variable "iam_role_name" {
 ##############
 #### IRSA ####
 ##############
-variable "service_account_name" {
-  description = "Name of service account to create. Not generated"
-  type        = string
-  default     = "efs-csi-controller-sa"
-}
-
 variable "create_default_irsa" {
   description = "Create default IRSA for service account"
   type        = bool

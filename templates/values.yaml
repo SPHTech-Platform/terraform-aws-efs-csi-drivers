@@ -22,6 +22,7 @@ controller:
   resources: ${controller_resources}
   serviceAccount:
     create: true
+    name: ${controller_service_account_name}
     annotations: ${controller_service_account_annotations}
     ## Enable if EKS IAM for SA is used
     #  eks.amazonaws.com/role-arn: arn:aws:iam::111122223333:role/efs-csi-role
@@ -36,6 +37,7 @@ node:
   resources: ${node_resources}
   serviceAccount:
     create: true
+    name: ${node_service_account_name}
     annotations: ${node_service_account_annotations}
     ## Enable if EKS IAM for SA is used
     #  eks.amazonaws.com/role-arn: arn:aws:iam::111122223333:role/efs-csi-role
