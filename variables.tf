@@ -48,7 +48,7 @@ variable "max_history" {
 variable "create_namespace" {
   description = "Create the namespace if it does not exist"
   type        = bool
-  default     = false
+  default     = true
 }
 
 ########################
